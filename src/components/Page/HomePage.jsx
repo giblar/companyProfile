@@ -1,14 +1,15 @@
 import React from 'react'
-import About from "./components/Layouts/About/About"
-import Footer from "./components/Layouts/Footer/Footer"
-import Home from "./components/Layouts/Home/Home"
-import Innovation from "./components/Layouts/Innovation/Innovation"
-import Portfolio from "./components/Layouts/Portfolio/Portfolio"
-import Solutions from "./components/Layouts/Solutions/Solutions"
-import Testimoni from "./components/Layouts/Testimoni/Testimoni"
+import About from "../../components/Layouts/About/About"
+import Footer from "../../components/Layouts/Footer/Footer"
+import Home from "../../components/Layouts/Home/Home"
+import Innovation from "../../components/Layouts/Innovation/Innovation"
+import Portfolio from "../../components/Layouts/Portfolio/Portfolio"
+import Solutions from "../../components/Layouts/Solutions/Solutions"
+import Testimoni from "../../components/Layouts/Testimoni/Testimoni"
 
 // import Solutions from "./components/Layouts/Solutions/Solutions"
-import Navbar from "./components/Navbar"
+import Navbar from "../../components/Navbar"
+import Support from '../Layouts/Support/Support'
 
 
 const HomePage = () => {
@@ -21,6 +22,7 @@ const HomePage = () => {
     <Innovation></Innovation>
    <Portfolio></Portfolio>
    <Testimoni></Testimoni>
+   <Support></Support>
     
     
 

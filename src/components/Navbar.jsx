@@ -49,16 +49,16 @@ const Navbar = () => {
                 <div className={`flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end md:flex ${isOpen ? 'block' : 'hidden'}`}>
                     <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
                         <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Home</a>
+                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/">Home</a>
                         </li>
                         <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">About Us</a>
+                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/about">About Us</a>
                         </li>
                         <li className="mr-3">
                             <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Portfolio</a>
                         </li>
                         <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Blogs</a>
+                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/blog">Blogs</a>
                         </li>
                         <li className="mr-3">
                             <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Services</a>

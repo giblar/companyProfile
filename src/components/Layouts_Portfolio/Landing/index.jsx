@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
+import Card from './fragments/Card'
 import Slider from "react-slick";
-import Card from "./fragments/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SimpleSlider() {
+const index = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     customPaging: function (i) {
       return (
@@ -30,26 +30,21 @@ function SimpleSlider() {
     ),
     dotsClass: "slick-dots slick-thumb",
   };
-
   return (
-    <div className="slider-container  px-10 my-10">
-      <h1 className="text-center text-3xl text-blue-900 font-semibold mb-10">
-        testimony
-      </h1>
+    <div>
+      <h2 className='mt-5 mx-5 lg:text-4xl text-2xl text-center font-semibold '>this is an <span className='text-blue-800'>aplication</span> we have made <span className='text-blue-800'>for</span> a <span className='text-blue-800'>client</span></h2> 
+      <div className='my-10'>
       <Slider {...settings}>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        {/* Tambahkan lebih banyak slide di sini sesuai kebutuhan */}
+       
+          <div>
+             <Card/>
+          </div>
+   
+  
       </Slider>
+      </div>
     </div>
-  );
+  )
 }
 
-export default SimpleSlider;
+export default index

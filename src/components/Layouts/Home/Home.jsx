@@ -25,7 +25,7 @@ const Home = () => {
         explicabo numquam odit corrupti fugit exercitationem cupiditate,
         nostrum libero! Aliquid, eius.
       </p>
-          <Button Color="border-white">contact now</Button>
+         <a href="/"> <Button Color="border-white" >contact now</Button></a>
           <div className="mt-4 grid grid-cols-3">
             <CardTestimo></CardTestimo>
             <CardTestimo CardColor="bg-blue-950" CardText="text-white"></CardTestimo>

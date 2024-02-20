@@ -5,13 +5,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Innovation = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // };
 
   return (
     <div className="lg:h-screen flex flex-col justify-center items-center relative md:px-10 px-2">
@@ -20,7 +20,7 @@ const Innovation = () => {
       </h1>
 
       <div className="flex justify-center">
-        <Slider {...settings}>
+        {/* <Slider {...settings}> */}
           <div>
             <Card
               CardImage="inovation.jpg"
@@ -31,7 +31,7 @@ const Innovation = () => {
          
           </div>
          
-        </Slider>
+        {/* </Slider> */}
       </div>
     </div>
   );

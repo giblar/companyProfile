@@ -7,15 +7,15 @@ const Button = (props) => {
   } = props;
   return (
     <>
-      <button class={`flex items-center px-4 py-2 border ${Color} rounded-full`}>
-        <span class="mr-2">{children}</span>
-        <div class="bg-red-500 rounded-full p-2">
+      <button className={`flex items-center px-4 py-2 border ${Color} rounded-full`}>
+        <span className="mr-2">{children}</span>
+        <div className="bg-red-500 rounded-full p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            class="h-6 w-6 text-white"
+            className="h-6 w-6 text-white"
           >
             <path
               stroke-linecap="round"
