@@ -1,8 +1,13 @@
 import React from 'react'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Card = () => {
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
-    <div className="card aspect-square max-w-xs max-h-xs relative">
+    <div className="card aspect-square max-w-xs max-h-xs relative" data-aos="flip-up">
     <img
       src="/image/inovation.jpg"
       alt=""

@@ -2,7 +2,7 @@ import React from "react";
 
 const CompanyProfile = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-[10rem]">
       <h1 className="text-4xl font-semibold font-mono text-center">
         this is the <span className="text-blue-800 ">company profile</span>
       </h1>

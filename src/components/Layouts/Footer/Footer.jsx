@@ -26,12 +26,12 @@ const Footer = () => {
           <h5 className="text-lg mt-0 mb-2 text-white ml-2">Casatech</h5>
         </div>
         <div className="grid lg:grid-cols-4 md:grid-cols-1  text-white">
-          <p>
+          <p className="mx-5">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
             eveniet amet excepturi minima asperiores eius numquam nihil,
             repellendus vel id.
           </p>
-          <div className="map-container w- lg:w-6/12 px-4">
+          <div className="map-container w-1/2 lg:w-6/12 px-4">
             <h1 className="font-semibold">location</h1>
             <iframe
               title="Google Maps"
@@ -41,7 +41,8 @@ const Footer = () => {
               loading="lazy"
             ></iframe>
           </div>
-          <div className="ml-10">
+         <div className="flex">
+         <div className="ml-10">
             <h1 className="font-semibold text-xl">company</h1>
             <div>
               <ul>
@@ -67,6 +68,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+         </div>
         </div>
         <hr className="my-6 border-blueGray-300" />
         <div className="flex flex-wrap items-center md:justify-between justify-center">

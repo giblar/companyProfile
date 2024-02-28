@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-10">
       <div className="md:mx-8 mx-10 lg:max-w-[100vh] md:max-w-[100vh] grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 bg-blue-100 rounded-lg">
   <div className="flex justify-center">
   <img src="/image/inovation.jpg" className="aspect-square " alt="" />

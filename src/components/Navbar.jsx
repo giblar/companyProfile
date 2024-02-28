@@ -1,76 +1,97 @@
 import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.pageYOffset;
-            if (scrollTop > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
+    window.addEventListener('scroll', handleScroll);
 
-        window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    return (
-        <nav className={`p-2 w-full fixed text-xl z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white text-black shadow-md' : ''}`}>
-            <div className="container mx-auto flex flex-wrap items-center">
-                <div className="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
-                    <a className="text-white no-underline hover:text-white hover:no-underline" href="#">
-                        <img src="/image/logo.png" alt="Logo" />
-                    </a>
-                </div>
-
-                <div className="md:hidden">
-                    <button onClick={toggleMenu} className=" top-5 absolute left-5 text-slate-800 hover:text-black focus:text-black focus:outline-none">
-                        <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M3 6h18v2H3V6zM3 11h18v2H3v-2zm18 5H3v2h18v-2z"
-                            />
-                        </svg>
-                    </button>
-                </div>
-
-                <div className={`flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end md:flex ${isOpen ? 'block' : 'hidden'}`}>
-                    <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/">Home</a>
-                        </li>
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/about">About Us</a>
-                        </li>
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Portfolio</a>
-                        </li>
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="/blog">Blogs</a>
-                        </li>
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Services</a>
-                        </li>
-                        <li className="mr-3">
-                            <a className={`inline-block no-underline py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'} hover:text-blue-800 hover:text-underline`} href="#">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparant text-white'}`}>
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            {/* Mobile menu button*/}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+              className="relative inline-flex items-center justify-center rounded-md p-2 text-black  hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+            >
+              <span className="absolute -inset-0.5"></span>
+              <span className="sr-only">Open main menu</span>
+              {/* Icon when menu is closed. Menu open: "hidden", Menu closed: "block" */}
+              <svg
+                className={`block h-6 w-6 ${isMobileMenuOpen ? 'hidden' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              {/* Icon when menu is open. Menu open: "block", Menu closed: "hidden" */}
+              <svg
+                className={`h-6 w-6 ${isMobileMenuOpen ? '' : 'hidden'}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-shrink-0 items-center">
+              <img className="h-8 w-auto" src="image/logo.png" alt="Your Company" />
             </div>
-        </nav>
-    );
-}
+            <div className="hidden sm:ml-6 sm:block">
+              <div className="flex space-x-4">
+                {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+                <a href="/" className=" text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">home</a>
+                <a href="/about" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="/blog" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
+                <a href="/service" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Service</a>
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            
+            {/* Profile dropdown */}
+            
+          </div>
+        </div>
+      </div>
+      {/* Mobile menu, show/hide based on menu state. */}
+      <div className={`sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+        <div className="space-y-1 px-2 pb-3 pt-2">
+          {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+          <a href="#" className="bg-blue-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+          <a href="#" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">Team</a>
+          <a href="#" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+          <a href="#" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
