@@ -12,8 +12,8 @@ const AboutPage = () => {
     <div>
       <Navbar></Navbar>
       <Home></Home>
-      <History></History>
-      <CompanyProfile></CompanyProfile>
+      {/* <History></History> */}
+      {/* <CompanyProfile></CompanyProfile> */}
       <Visi></Visi>
       <Culture></Culture>
     <Person></Person>

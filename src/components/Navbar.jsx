@@ -66,7 +66,7 @@ const Navbar = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                <a href="/" className=" text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">home</a>
+                <a href="/" className=" text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                 <a href="/about" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
                 <a href="/blog" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
                 <a href="/service" className="text-black hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Service</a>
@@ -84,10 +84,10 @@ const Navbar = () => {
       <div className={`sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-          <a href="/" className="text-black  hover:text-black block rounded-md px-3 py-2 text-base font-medium">home</a>
-          <a href="/about" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">about</a>
-          <a href="/blog" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">blog</a>
-          <a href="/service" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">service</a>
+          <a href="/" className="text-black  hover:text-black block rounded-md px-3 py-2 text-base font-medium">Home</a>
+          <a href="/about" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">About Us</a>
+          <a href="/blog" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">Blog</a>
+          <a href="/service" className="text-black hover:text-black block rounded-md px-3 py-2 text-base font-medium">Service</a>
         </div>
       </div>
     </nav>

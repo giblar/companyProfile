@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./fragments/Card";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import axios from "axios";
 
