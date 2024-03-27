@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Button from "../../Elements/Button_slide/Button_slide";
 import CardTestimo from "./fragments/CardTestimo";
 import Aos from "aos";
@@ -8,6 +9,26 @@ const Home = () => {
   useEffect(() => {
     Aos.init();
   }, []);
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://casatech.id/compro-api/company', {
+          headers: {
+            Authorization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA'
+          }
+        });
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="h-screen w-full overflow-x-hidden">
       <img
@@ -35,32 +56,48 @@ const Home = () => {
             {" "}
             <Button Color="border-white">contact now</Button>
           </a>
-          <div className=" grid grid-cols-3 lg:mt-10 mt-[5rem] ">
-            <CardTestimo></CardTestimo>
+          {/* tresf */}
+          
+          {data ? (
+        <div>
+        
+      
+          {Array.isArray(data.data) ? (
+            data.data.map(item => (
+              <div key={item.id}>
+                <div className=" grid grid-cols-3 lg:mt-10 mt-[5rem] ">
+                 <CardTestimo
+            CardType="Clients"
+            CardSum={item.client}
+            />
             <CardTestimo
+              CardType="Sponsor"
               CardColor="bg-blue-950"
               CardText="text-white"
-            ></CardTestimo>
-            <CardTestimo></CardTestimo>
-          </div>
+              CardSum={item.sponsor}
+            />
+           <CardTestimo
+            CardType="Rating"
+            CardSum={item.rating}
+            />
+              <img src={item.image_about} alt="" />
+              </div>
+              </div>
+            ))
+          ) : (
+            <p>Data is not an array</p>
+          )}
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+           
+          
+          {/* trest */}
         </div>
       </div>
 
-      {/* <div className="bg-slate-600 flex top-14">
-        <div className="flex flex-col">
-          <img src="/image/rounded.jpg" className="w-1/4 mb-4" alt="Rounded" />
-          <img src="/image/rounded.jpg" className="w-1/3" alt="Rounded" />
-        </div>
-
-        <div className="">
-          <h1 className="text-xl md:text-7xl font-bold text-white">
-            <span className="text-blue-950">Deep</span> Understanding,
-          </h1>
-          <h1 className="text-xl md:text-7xl font-bold text-white">
-            Inspirational <span className="text-blue-950">Solutions</span>
-          </h1>
-        </div>
-</div> */}
+     
     </div>
   );
 };

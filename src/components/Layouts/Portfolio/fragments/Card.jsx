@@ -2,7 +2,9 @@ import React from 'react'
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-const Card = () => {
+const Card = (props) => {
+ 
+
   useEffect(()=>{
     Aos.init();
   },[])

@@ -4,7 +4,8 @@ import { faWallet } from "@fortawesome/free-solid-svg-icons";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-const Card = () => {
+const Card = ( props ) => {
+  const { CardTitle, CardDescription } = props;
   useEffect(()=>{
     Aos.init();
   },[])
@@ -14,10 +15,9 @@ const Card = () => {
       <div className="flex items-center justify-center bg-white rounded-full w-max h-max p-10">
         <FontAwesomeIcon icon={faWallet} className="text-blue-900 text-3xl md:text-7xl" />
       </div>
-      <h2 className="lg:text-2xl font-semibold mb-2">Lorem Ipsum</h2>
+      <h2 className="lg:text-2xl font-semibold mb-2">{CardTitle}</h2>
       <p className="mt-2 text-sm md:text-sm font-thin">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, nisi.
-        Nihil omnis consequatur, quas nam labore et quasi. Blanditiis, sed.
+        {CardDescription}
       </p>
     </div>
   </div>

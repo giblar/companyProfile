@@ -1,73 +1,78 @@
 import React, { useEffect, useState } from "react";
-
 import Card from "./fragments/Card";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper';
 import 'swiper/swiper-bundle.css';
-import { EffectFade } from 'swiper/modules';
+import axios from "axios";
 
 function SimpleSlider() {
-  const url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const getDataProduct = async () => {
-    const response = await fetch(url);
-    const dataProduct = await response.json();
-    setProducts(dataProduct);
-  };
+  const [testimoni, setTestimoni] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA';
 
   useEffect(() => {
-    getDataProduct();
-  });
+    const fetchTestimoni = async () => {
+      try {
+        const response = await axios.get('https://casatech.id/compro-api/testimoni', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        setTestimoni(response.data.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+    fetchTestimoni(); 
+  }, [token]);
 
   return (
-   <div>
-    <h1 className="text-center lg:text-left lg:m-10 text-3xl text-blue-900 font-semibold mb-10">
-        testimony
+    <div>
+      <h1 className="text-center lg:text-left lg:m-10 text-3xl text-blue-900 font-semibold mb-10">
+        Testimony
       </h1>
-     <Swiper 
-    modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade]}
-    spaceBetween={50}
-   
-   
-    navigation
-    pagination={{ clickable: true, className: '' }}
-    className=""
-    // autoplay={{ delay: 3000 }}
-    breakpoints={{
-      // Saat lebar layar kurang dari 640px, tampilkan hanya satu slide per view
-      640: {
-        slidesPerView: 1
-      },
-      // Saat lebar layar kurang dari 768px, tampilkan dua slide per view
-      768: {
-        slidesPerView: 2
-      },
-      // Saat lebar layar kurang dari 1024px, tampilkan tiga slide per view
-      1024: {
-        slidesPerView: 3
-      }
-    }}
-    
-    >
-    <div className="slider-container  ">
-      
-        {products.map((produk) => (
-          <SwiperSlide key={produk.id}>
-            <Card 
-            CardImage={produk.image}
-            CardDescription={produk.description}
-            CardName={produk.title}
-            />
-          </SwiperSlide>)
-        )}
-         
-     
-         
-         
-        
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+        spaceBetween={50}
+        navigation
+        pagination={{ clickable: true }}
+        className=""
+        breakpoints={{
+          640: {
+            slidesPerView: 1
+          },
+          768: {
+            slidesPerView: 2
+          },
+          1024: {
+            slidesPerView: 3
+          }
+        }}
+      >
+        <div className="slider-container">
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>Error: {error.message}</p>
+          ) : testimoni.length > 0 ? (
+            testimoni.map((Testimoni, index) => (
+              <SwiperSlide key={index}>
+                <Card
+                  CardImage={Testimoni.image}
+                  CardDescription={Testimoni.description}
+                  CardName={Testimoni.name}
+                />
+              </SwiperSlide>
+            ))
+          ) : (
+            <p>No data available</p>
+          )}
+        </div>
+      </Swiper>
     </div>
-    </Swiper>
-   </div>
   );
 }
 

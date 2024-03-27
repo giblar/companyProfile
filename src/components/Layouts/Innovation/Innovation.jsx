@@ -4,20 +4,33 @@ import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { EffectFade } from "swiper/modules";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Innovation = () => {
-  const url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const getDataProduct = async () => {
-    const response = await fetch(url);
-    const dataProduct = await response.json();
-    setProducts(dataProduct);
-  };
+ const [innovation, setInnovation] = useState([]);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState(null);
+ const [token, setToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA');
 
-  useEffect(() => {
-    getDataProduct();
-  });
+  useEffect(()=>{
+    const fetchInnovation = async () => {
+      try {
+        const response = await axios.get("https://casatech.id/compro-api/innovation", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        setInnovation(response.data.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+      };
+      fetchInnovation();
 
+    }, [token]);
+ 
   
   return (
     <div>
@@ -33,9 +46,7 @@ const Innovation = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          // style={{
-          //   "--swiper-pagination-color": "yellow", // Mengatur warna dot pagination menjadi kuning
-          // }}
+         
         >
           {" "}
           <div className="">
@@ -43,17 +54,26 @@ const Innovation = () => {
             <div className="slider-container">
               <div className="">
                 <div>
-                  {products.map((produk) => (
-                    <SwiperSlide>
+                  {loading ? (
+                    <p>Loading...</p>
+                  ) : error ? (
+                    <p>Error: {error.message}</p>
+                  ) : innovation.length > 0 ? (
+                    innovation.map((innovation, index) => (
+                      <SwiperSlide>
                       <Card
-                        key={produk.id}
-                        CardTitle={produk.title}
-                        CardImage={produk.image}
-                        CardDescription={produk.description}
+                        key={index}
+                        CardTitle={innovation.tittle}
+                        CardImage="/image/innovation.jpg"
+                        CardDescription={innovation.description}
                         CardDate="12-12-2003"
                       />
                     </SwiperSlide>
-                  ))}
+                    ))
+                  ) : (
+                    <p>No data available</p>
+                  )}
+                
                 </div>
               </div>
             </div>

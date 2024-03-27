@@ -15,6 +15,8 @@ import React from "react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
+   
+
     <footer className="relative  pt-8 pb-6" style={{ background: "#222258" }}>
       <div className="container mx-auto px-4">
         <img
@@ -25,51 +27,52 @@ const Footer = () => {
         <div className="w-full lg:w-6/12 px-4 flex items-center">
           <h5 className="text-lg mt-0 mb-2 text-white ml-2">Casatech</h5>
         </div>
-        <div className="grid lg:grid-cols-4 md:grid-cols-1  text-white">
-          <p className="mx-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-            eveniet amet excepturi minima asperiores eius numquam nihil,
-            repellendus vel id.
+        <div>
+      
+      <div className="flex flex-wrap lg:justify-center justify-between gap-[30px] px-[30px] text-white">
+        <div>
+          <p className="w-[300px]">
+            Google Terjemahan adalah layanan penerjemahan statistik dan mesin
+            neural multibahasa bahasa yang dikembangkan oleh Google, untuk
+            menerjemahkan teks dan situs web dari satu bahasa ke bahasa lai
           </p>
-          <div className="map-container w-1/2 lg:w-6/12 px-4">
-            <h1 className="font-semibold">location</h1>
-            <iframe
-              title="Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3904885292955!2d106.80826197460277!3d-6.598296893395508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5935743b7e3%3A0x76074157a5981127!2si7%20Creative%20Community%20Space!5e0!3m2!1sid!2sid!4v1708049118110!5m2!1sid!2sid"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
-         <div className="flex">
-         <div className="ml-10">
-            <h1 className="font-semibold text-xl">company</h1>
-            <div>
-              <ul>
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">inovation</a></li>
-                <li><a href="">careerr</a></li>
-                <li><a href="">home</a></li>
-               
-              </ul>
-            </div>
-          </div>
-          <div className="ml-10">
-            <h1 className="font-semibold text-xl">company</h1>
-            <div>
-              <ul>
-                <li><a href="">home</a></li>
-                <li><a href="">about us</a></li>
-                <li><a href="">inovation</a></li>
-                <li><a href="">careerr</a></li>
-                <li><a href="">home</a></li>
-               
-              </ul>
-            </div>
-          </div>
-         </div>
         </div>
+        <div>
+          <p>Location</p>
+          <iframe
+            title="Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3904885292955!2d106.80826197460277!3d-6.598296893395508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5935743b7e3%3A0x76074157a5981127!2si7%20Creative%20Community%20Space!5e0!3m2!1sid!2sid!4v1708049118110!5m2!1sid!2sid"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div className="flex gap-[20px]">
+          <div>
+            <p>Company</p>
+            <ul>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+            </ul>
+          </div>
+
+          <div>
+            <p>Company</p>
+            <ul>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+              <li>hhhhh</li>
+            </ul>
+          </div>
+        </div>
+                  
+      </div>
+    </div>
         <hr className="my-6 border-blueGray-300" />
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Letter = () => {
+const Giblar = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -21,20 +21,16 @@ const Letter = () => {
     fetchData();
   }, []);
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-  };
   return (
-    <div className=''>
-     {data ? (
+    <div>
+      {data ? (
         <div>
           {Array.isArray(data.data) ? (
             data.data.map(item => (
               <div key={item.id}>
-                <p>{item.description_about}</p>
-                <p>{formatDate(item.created_at)}</p>
-               
+                <p>Client: {item.client}</p>
+                <p>Sponsor: {item.sponsor}</p>
+                <p>Rating: {item.rating}</p>
               </div>
             ))
           ) : (
@@ -44,11 +40,8 @@ const Letter = () => {
       ) : (
         <p>Loading...</p>
       )}
-
-      
-   
     </div>
-  );
+  )
 }
 
-export default Letter;
+export default Giblar;
