@@ -5,6 +5,7 @@ import "swiper/swiper-bundle.css";
 import { EffectFade } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import LoadAnim from "../../LoadAnim";
 
 const Innovation = () => {
  const [innovation, setInnovation] = useState([]);
@@ -34,7 +35,7 @@ const Innovation = () => {
   
   return (
     <div>
-      <h1 className=" ml-10 lg:absolute lg:mt-[5rem] text-center text-blue-900 text-3xl font-bold ">
+      <h1 className=" ml-10 lg:absolute lg:mt-[5rem] text-center text-[#1762EF] text-3xl font-bold ">
         Our Innovation
       </h1>
       <div className=" h-screen flex justify-center items-center">
@@ -55,7 +56,7 @@ const Innovation = () => {
               <div className="">
                 <div>
                   {loading ? (
-                    <p>Loading...</p>
+                    <LoadAnim></LoadAnim>
                   ) : error ? (
                     <p>Error: {error.message}</p>
                   ) : innovation.length > 0 ? (

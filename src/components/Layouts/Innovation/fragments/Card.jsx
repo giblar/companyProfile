@@ -15,7 +15,7 @@ const Card = (props) => {
     <div className="flex justify-center items-center mb-10 mx-10">
       <div
         data-aos="flip-right"
-        className=" bg-blue-100  lg:max-w-3xl  rounded-xl shadow-md overflow-hidden"
+        className=" bg-[#F4F8FF]  lg:max-w-3xl  rounded-xl shadow-md overflow-hidden"
       >
         <div className="md:flex">
           <div className="md:shrink-0 h-full">

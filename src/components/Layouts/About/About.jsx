@@ -4,7 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import LoadAnim from "../../../components/LoadAnim"
 const About = () => {
   useEffect(()=>{
     Aos.init();
@@ -75,7 +75,7 @@ const About = () => {
           )}
         </div>
       ) : (
-        <p>Loading...</p>
+        <LoadAnim></LoadAnim>
       )}
           
         </div>

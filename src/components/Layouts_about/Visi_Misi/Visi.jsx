@@ -21,8 +21,9 @@ const Visi = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      setVisi(response.data.visi);
-      setMisi(response.data.misi);
+      console.log('response visi', response)
+      setVisi(response?.data?.data?.[0]?.visi);
+      setMisi(response?.data?.data?.[0]?.misi);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -31,7 +32,7 @@ const Visi = () => {
   return (
     <div className="mt-10 lg:h-screen flex flex-col justify-center items-center">
       <h1 className="text-center text-4xl font-bold" data-aos="fade-down" data-aos-duration="1000">
-        <span className="text-blue-800">Visi & Misi</span> Casatech
+        <span className="text-[#1762EF]">Visi & Misi</span> Casatech
       </h1>
 
       <div className="grid lg:grid-cols-2 md:grid-cols-1 w-10/12 mx-auto mt-10">

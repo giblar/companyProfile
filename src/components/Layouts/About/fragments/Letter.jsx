@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import LoadAnim from '../../../LoadAnim';
 
 const Letter = () => {
   const [data, setData] = useState(null);
@@ -42,7 +43,7 @@ const Letter = () => {
           )}
         </div>
       ) : (
-        <p>Loading...</p>
+       <LoadAnim></LoadAnim>
       )}
 
       
