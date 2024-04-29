@@ -64,7 +64,7 @@ const About = () => {
               <div key={item.id}>
                
                 <img
-                  src={`https://casatech.id/compro-api/company/asset/${item.image_about.split('/').pop()}`}
+                  src={`https://casatech.id/compro-api/image/${item.image_about.split('/').pop()}`}
                   className={isResponsive ? "rounded-br-[50%] object-cover h-full p-4 max-w-xs aspect-square" : "rounded-br-[50%] object-cover h-[70%] p-4 max-w-full aspect-square"}
                   alt="about" data-aos="fade-right" data-aos-duration="2000"
                 />
