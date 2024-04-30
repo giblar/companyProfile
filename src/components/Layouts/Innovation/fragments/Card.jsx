@@ -21,7 +21,7 @@ const Card = (props) => {
           <div className="md:shrink-0 h-full">
             <img
               className="w-full h-full  md:w-full lg:w-48 sm:w-full aspect-square rounded-xl"
-              src={`image/inovation.jpg`}
+              src={`https://casatech.id/compro-api${CardImage}`}
               alt="Team"
             />
           </div>
@@ -30,8 +30,8 @@ const Card = (props) => {
               {CardTitle}
             </div>
 
-            <div className="mt-2 text-gray-500 overflow-y-auto max-h-20  scrollbar scrollbar-thumb-slate-900 scrollbar-track-blue-100">
-              {CardDescription} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi expedita laboriosam quas facere alias rerum quo ut! Id architecto reprehenderit cumque in? Unde suscipit alias numquam cum. Quasi vitae rem, esse magnam porro laborum magni quo deserunt facilis nulla, natus vero recusandae atque minima cupiditate ea aut sint dolor asperiores fuga excepturi laudantium tempore. Quasi tenetur inventore unde laboriosam explicabo perferendis cumque animi natus ad voluptate, ipsam porro facilis maiores accusamus, id eum. Quam sapiente saepe harum, itaque neque unde ipsam reiciendis temporibus accusantium a modi tempora eveniet aliquid dolorem.
+            <div className="mt-2 text-gray-500 overflow-y-auto max-h-20  scrollbar scrollbar-thumb-slate-900 scrollbar-track-blue-100" dangerouslySetInnerHTML={{ __html: CardDescription }}>
+              
             </div>
             <div className="">
               <span className="text-blue-600 ">

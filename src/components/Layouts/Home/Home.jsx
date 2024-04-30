@@ -89,7 +89,15 @@ const Home = () => {
           )}
         </div>
       ) : (
-        <p>Loading...</p>
+        // ini adalah skeleton loading
+        <div className='grid grid-cols-3 lg:mt-10 mt-[5rem]'>
+          <div className={`w-20 lg:w-[10rem] md:w-15 aspect-square bg-slate-300 text-center p-2 rounded-br-xl  rounded-tl-xl flex flex-col justify-center`}>
+        <p className="text-xs md:text-sm "><p className='bg-white w-1/2 mx-auto'>Up To</p></p>
+        <h1 className="text-lg md:text-2xl font-bold  mt-1"><p className='bg-white w-1/2 mx-auto'>....</p></h1>
+        <p className="text-xs md:text-sm">fdsaf</p>
+      </div>
+        
+        </div>
       )}
            
           

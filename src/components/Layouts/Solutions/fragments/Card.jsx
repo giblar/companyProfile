@@ -10,14 +10,14 @@ const Card = ( props ) => {
     Aos.init();
   },[])
   return (
-    <div className="p-4 max-w-xs my-10 text-white " data-aos="fade-up-right"> {/* Tambahkan kelas mx-auto */}
+    <div className="p-4 max-w-xs my-10 text-white " data-aos="fade-up-right"> 
     <div className="aspect-square">
       <div className="flex items-center justify-center bg-white rounded-full w-max h-max p-10">
         <FontAwesomeIcon icon={faWallet} className="text-blue-900 text-3xl md:text-7xl" />
       </div>
       <h2 className="lg:text-2xl font-semibold mb-2">{CardTitle}</h2>
-      <p className="mt-2 text-sm md:text-sm font-thin">
-        {CardDescription}
+      <p className="mt-2 text-sm md:text-sm font-thin"dangerouslySetInnerHTML={{ __html: CardDescription }}>
+      
       </p>
     </div>
   </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 
 const Card = (props) => {
-  const { title, description } = props
+  const { title, description, image } = props
   return (
     <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
           <div>
             <img
-              className="w-full"
-              src="/image/meeting.png"
+              className="w-full aspect-video object-cover"
+              src={`https://casatech.id/compro-api/${image}`}
               alt="Meeting"
             />
           </div>
@@ -15,8 +15,8 @@ const Card = (props) => {
             <span className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
            {title}
             </span>
-            <p className="text-gray-500 text-sm">
-              {description}
+            <p className="text-gray-500 text-sm" dangerouslySetInnerHTML={{ __html: description }}>
+             
             </p>
             
           </div>

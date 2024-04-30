@@ -47,6 +47,7 @@ const Blog = () => {
               <Card
               key={index}
               CardTitle={blog.tittle}
+              CardImage={blog.image}
               CardDate={formatDate(blog.created_at)}
               CardCreator={blog.created_by}
               CardDescription={blog.description}

@@ -6,7 +6,7 @@ const Card = (props) => {
     <div className="bg-blue-600 rounded-t-[100px] w-[200px] h-[300px] px-[20px] text-center text-[#585DF5] font-bold">
             <div>
               <img
-                src={`image/${CardImage}`}
+                src={`https://casatech.id/compro-api/${CardImage}`}
                 alt=""
                 className="filter drop-shadow-lg"
               />

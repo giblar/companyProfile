@@ -65,7 +65,7 @@ function SimpleSlider() {
                   CardDescription={Testimoni.description}
                   CardName={Testimoni.name}
                 />
-              <p>{Testimoni.image}</p>
+             
               </SwiperSlide>
             ))
           ) : (

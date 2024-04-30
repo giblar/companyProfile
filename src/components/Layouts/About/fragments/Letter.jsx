@@ -33,7 +33,7 @@ const Letter = () => {
           {Array.isArray(data.data) ? (
             data.data.map(item => (
               <div key={item.id}>
-                <p>{item.description_about}</p>
+                 <div dangerouslySetInnerHTML={{ __html: item.description_about }}></div>
                 <p>{formatDate(item.created_at)}</p>
                
               </div>

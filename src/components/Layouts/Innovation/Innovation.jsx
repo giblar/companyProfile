@@ -65,7 +65,7 @@ const Innovation = () => {
                       <Card
                         key={index}
                         CardTitle={innovation.tittle}
-                        CardImage="/image/innovation.jpg"
+                        CardImage={innovation.image}
                         CardDescription={innovation.description}
                         CardDate="12-12-2003"
                       />
