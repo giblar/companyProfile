@@ -31,7 +31,7 @@ const Visi = () => {
 
   return (
     <div className="mt-10 lg:h-screen flex flex-col justify-center items-center">
-      <h1 className="text-center text-4xl font-bold" data-aos="fade-down" data-aos-duration="1000">
+      <h1 className="text-center text-4xl font-bold" data-aos="fade-down" data-aos-duration="1000" data-aos-anchor-placement="top-center">
         <span className="text-[#1762EF]">Visi & Misi</span> Casatech
       </h1>
 

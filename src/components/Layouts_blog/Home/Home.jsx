@@ -13,7 +13,9 @@ const Home = () => {
     >
       <div className="flex flex-col items-center ">
         <img src="/image/whiteLogo.png" alt="" className="mb-4 " />
-        <div className="flex">
+        <h1 className="text-white text-3xl font-semibold">Casatech Blogs</h1>
+        <p className="text-white text-lg">Home/Blog</p>
+        {/* <div className="flex">
           <input
             type="text"
             className="appearance-none w-full max-w-md bg-gray-200 text-gray-700 border border-gray-200 rounded-l py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
@@ -25,7 +27,7 @@ const Home = () => {
           >
            <FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#ffffff",}} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

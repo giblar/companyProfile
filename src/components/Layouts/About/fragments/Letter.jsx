@@ -22,10 +22,7 @@ const Letter = () => {
     fetchData();
   }, []);
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-  };
+  
   return (
     <div className=''>
      {data ? (
@@ -33,8 +30,8 @@ const Letter = () => {
           {Array.isArray(data.data) ? (
             data.data.map(item => (
               <div key={item.id}>
-                 <div dangerouslySetInnerHTML={{ __html: item.description_about }}></div>
-                <p>{formatDate(item.created_at)}</p>
+                 <div dangerouslySetInnerHTML={{ __html: item.description_about }} className='mb-10'></div>
+              
                
               </div>
             ))
@@ -43,7 +40,10 @@ const Letter = () => {
           )}
         </div>
       ) : (
-       <LoadAnim></LoadAnim>
+        <div class="space-y-4">
+                <div class="h-4 bg-gray-300 rounded"></div>
+                <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
       )}
 
       

@@ -6,33 +6,37 @@ import { EffectFade } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LoadAnim from "../../LoadAnim";
+import SceletonC from "./fragments/SceletonC";
 
 const Innovation = () => {
- const [innovation, setInnovation] = useState([]);
- const [loading, setLoading] = useState(true);
- const [error, setError] = useState(null);
- const [token, setToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA');
+  const [innovation, setInnovation] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [token, setToken] = useState(
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA"
+  );
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchInnovation = async () => {
       try {
-        const response = await axios.get("https://casatech.id/compro-api/innovation", {
-          headers: {
-            Authorization: `Bearer ${token}`
+        const response = await axios.get(
+          "https://casatech.id/compro-api/innovation",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         setInnovation(response.data.data);
         setLoading(false);
       } catch (error) {
         setError(error);
         setLoading(false);
       }
-      };
-      fetchInnovation();
+    };
+    fetchInnovation();
+  }, [token]);
 
-    }, [token]);
- 
-  
   return (
     <div>
       <h1 className=" ml-10 lg:absolute lg:mt-[5rem] text-center text-[#1762EF] text-3xl font-bold ">
@@ -47,7 +51,6 @@ const Innovation = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-         
         >
           {" "}
           <div className="">
@@ -56,25 +59,26 @@ const Innovation = () => {
               <div className="">
                 <div>
                   {loading ? (
-                    <LoadAnim></LoadAnim>
-                  ) : error ? (
+                   
+                    <SceletonC/>
+                  ) : 
+                  error ? (
                     <p>Error: {error.message}</p>
                   ) : innovation.length > 0 ? (
                     innovation.map((innovation, index) => (
                       <SwiperSlide>
-                      <Card
-                        key={index}
-                        CardTitle={innovation.tittle}
-                        CardImage={innovation.image}
-                        CardDescription={innovation.description}
-                        CardDate="12-12-2003"
-                      />
-                    </SwiperSlide>
+                        <Card
+                          key={index}
+                          CardTitle={innovation.tittle}
+                          CardImage={innovation.image}
+                          CardDescription={innovation.description}
+                          CardDate="12-12-2003"
+                        />
+                      </SwiperSlide>
                     ))
                   ) : (
                     <p>No data available</p>
                   )}
-                
                 </div>
               </div>
             </div>

@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Card from "./fragments/Card";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper/modules';
-import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+} from "swiper/modules";
+import "swiper/swiper-bundle.css";
 import axios from "axios";
+import SceletonC from "./fragments/SceletonC";
 
 function SimpleSlider() {
   const [testimoni, setTestimoni] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA';
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA";
 
   useEffect(() => {
     const fetchTestimoni = async () => {
       try {
-        const response = await axios.get('https://casatech.id/compro-api/testimoni', {
-          headers: {
-            Authorization: `Bearer ${token}`
+        const response = await axios.get(
+          "https://casatech.id/compro-api/testimoni",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         setTestimoni(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -26,7 +37,7 @@ function SimpleSlider() {
         setLoading(false);
       }
     };
-    fetchTestimoni(); 
+    fetchTestimoni();
   }, [token]);
 
   return (
@@ -42,20 +53,35 @@ function SimpleSlider() {
         className=""
         breakpoints={{
           640: {
-            slidesPerView: 1
+            slidesPerView: 1,
           },
           768: {
-            slidesPerView: 2
+            slidesPerView: 2,
           },
           1024: {
-            slidesPerView: 3
-          }
+            slidesPerView: 3,
+          },
         }}
       >
         <div className="slider-container">
           {loading ? (
-            <p>Loading...</p>
-          ) : error ? (
+           
+            <div>
+              <SwiperSlide>
+             <SceletonC></SceletonC>
+            </SwiperSlide>
+            <SwiperSlide>
+             <SceletonC></SceletonC>
+            </SwiperSlide>
+            <SwiperSlide>
+             <SceletonC></SceletonC>
+            </SwiperSlide>
+            <SwiperSlide>
+             <SceletonC></SceletonC>
+            </SwiperSlide>
+            </div>
+          ) : 
+          error ? (
             <p>Error: {error.message}</p>
           ) : testimoni.length > 0 ? (
             testimoni.map((Testimoni, index) => (
@@ -65,7 +91,6 @@ function SimpleSlider() {
                   CardDescription={Testimoni.description}
                   CardName={Testimoni.name}
                 />
-             
               </SwiperSlide>
             ))
           ) : (

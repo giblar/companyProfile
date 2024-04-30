@@ -43,17 +43,29 @@ const Portfolio = () => {
 
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-y-12 gap-3 justify-center items-center">
             {loading ? (
-              <p>Loading...</p>
+              // batas
+              <div className="card aspect-square max-w-xs max-h-xs relative" >
+             <div className="h-full w-full bg-gray-300 animate-pulse">
+
+             </div>
+              <div className="z-10 bg-gray-300 shadow-2xl  mx-4 absolute bottom-[-10%] left-0 right-0 p-4 flex flex-col justify-center items-center font-mono font-semibold text-gray-400">
+                <h1 className="text-center mb-2 bg-gray-400 animate-pulse rounded-md">...........</h1>
+                <h1 className="text-center rounded-md bg-gray-400 animate-pulse" >................</h1>
+                
+              </div>
+            </div>
+              // batas
             ) : error ? (
               <p>Error: {error.message}</p>
             ) : portfolio.length > 0 ? (
               portfolio.map((item, index) => (
                 <Card
                   key={index}
-                  CardTitle={item.software_name}
+                  CardTitle={item.title}
                   CardImage={item.image}
-                  CardDescription={truncateString(item.description, 70)}
-                />
+                  CardDescription={item.software_name}
+                  // truncateString(item.description, 50)
+                  />
               ))
             ) : (
               <p>No data available</p>

@@ -21,6 +21,7 @@ const Footer = () => {
   const [map, setMap] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [email, setEmail] = useState("");
+  const [description, setDescription] = useState("");
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA';
 
@@ -39,12 +40,13 @@ const Footer = () => {
 
       const data = response.data.data[0]; // Assuming response data is an object with 'data' property as an array
       setYoutube(data.link_youtube);
-      setInstagram(data.link_ig);
+      setInstagram(data.instagram);
       setWhatsapp(data.no_wa);
       setTelphone(data.no_telephone);
-      setMap(data.link_map);
+      setMap(data.map);
       setLinkedin(data.link_linkedin);
       setEmail(data.email);
+      setDescription(data.description_company);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -64,13 +66,10 @@ const Footer = () => {
           <h5 className="text-lg mt-0 mb-2 text-white ml-2">Casatech</h5>
         </div>
         <div>
-          <div className="flex flex-wrap lg:justify-center justify-between gap-[30px] px-[30px] text-white">
+          <div className="flex flex-wrap lg:justify-center justify-between gap-[140px] px-[30px] text-white">
             <div>
-              <p className="w-[300px]">
-                Google Terjemahan adalah layanan penerjemahan statistik dan
-                mesin neural multibahasa bahasa yang dikembangkan oleh Google,
-                untuk menerjemahkan teks dan situs web dari satu bahasa ke
-                bahasa lai
+              <p className="w-[300px]" dangerouslySetInnerHTML={{ __html: description }}>
+              
               </p>
             </div>
             <div>
@@ -87,14 +86,14 @@ const Footer = () => {
               <div>
                 <p>Company</p>
                 <ul>
-                  <li>{whatsapp}m</li> 
-                  <li>{telphone}p</li>
+                  <li>{whatsapp}</li> 
+                  <li>{telphone}</li>
                   <li>{instagram}r</li>
                   <li>{map}i</li>
                 </ul>
               </div>
 
-              <div>
+              {/* <div>
                 <p>Company</p>
                 <ul>
                   <li>hhhhh</li>
@@ -103,7 +102,7 @@ const Footer = () => {
                   <li>hhhhh</li>
                   <li>hhhhh</li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

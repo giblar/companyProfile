@@ -15,7 +15,7 @@ const Card = (props) => {
             <span className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
            {title}
             </span>
-            <p className="text-gray-500 text-sm" dangerouslySetInnerHTML={{ __html: description }}>
+            <p className="text-gray-500 lg:text-sm md:text-sm sm:text-sm text-[10px] h-1/2 overflow-auto" dangerouslySetInnerHTML={{ __html: description }}>
              
             </p>
             

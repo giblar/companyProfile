@@ -20,7 +20,7 @@ const Card = (props) => {
         <div className="md:flex">
           <div className="md:shrink-0 h-full">
             <img
-              className="w-full h-full  md:w-full lg:w-48 sm:w-full aspect-square rounded-xl"
+              className="w-full h-full  md:w-full lg:w-48 sm:w-full aspect-square object-cover rounded-xl"
               src={`https://casatech.id/compro-api${CardImage}`}
               alt="Team"
             />

@@ -9,7 +9,7 @@ const Card = (props) => {
     Aos.init();
   },[])
   return (
-    <div className="card aspect-square max-w-xs max-h-xs relative" data-aos="flip-up">
+    <div className="card aspect-square max-w-xs max-h-xs relative" data-aos="flip-up" data-aos-anchor-placement="top-center">
     <img
       src={`https://casatech.id/compro-api/${CardImage}`}
       alt=""

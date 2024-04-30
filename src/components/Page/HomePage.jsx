@@ -6,11 +6,11 @@ import Innovation from "../../components/Layouts/Innovation/Innovation"
 import Portfolio from "../../components/Layouts/Portfolio/Portfolio"
 import Solutions from "../../components/Layouts/Solutions/Solutions"
 import Testimoni from "../../components/Layouts/Testimoni/Testimoni"
-import Slider from "../../components/Layouts/Slider/Slider"
+
 
 // import Solutions from "./components/Layouts/Solutions/Solutions"
 import Navbar from "../../components/Navbar"
-import Giblar from "../../components/Giblar"
+
 import Support from '../Layouts/Support/Support'
 // import Test from '../Layouts/test/test'
 
@@ -19,7 +19,7 @@ import Support from '../Layouts/Support/Support'
 const HomePage = () => {
   return (
     <div className='overflow-hidden'>
-      {/* <Giblar></Giblar> */}
+    
      <Navbar></Navbar>
     <Home></Home>
     <About></About>
@@ -28,8 +28,7 @@ const HomePage = () => {
    <Portfolio></Portfolio>
    <Testimoni></Testimoni>
    <Support></Support>
-    {/* <Slider></Slider> */}
-    {/* <Test></Test> */}
+   
 
    <Footer></Footer>
     </div>

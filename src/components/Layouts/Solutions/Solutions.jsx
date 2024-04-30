@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Card from "./fragments/Card";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWallet } from "@fortawesome/free-solid-svg-icons";
+import SceletonC from "./fragments/SceletonC";
 
 const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [token, setToken] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA');
+  const [token, setToken] = useState(
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA"
+  );
 
   useEffect(() => {
     const fetchSolutions = async () => {
       try {
-        const response = await axios.get("https://casatech.id/compro-api/solution", {
-          headers: {
-            Authorization: `Bearer ${token}`
+        const response = await axios.get(
+          "https://casatech.id/compro-api/solution",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
         setSolutions(response.data.data); // Mengambil array solusi dari properti data
         setLoading(false);
       } catch (error) {
@@ -41,7 +49,10 @@ const Solutions = () => {
             <h1 className="text-3xl font-bold text-white mb-10">Solution</h1>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-y-12  gap-3 justify-center items-center">
               {loading ? (
-                <p>Loading...</p>
+                <div>
+                  <SceletonC/>
+                 
+                </div>
               ) : error ? (
                 <p>Error: {error.message}</p>
               ) : solutions.length > 0 ? (
@@ -51,7 +62,6 @@ const Solutions = () => {
                     CardTitle={solution.title}
                     CardDescription={solution.description}
                   />
-                  
                 ))
               ) : (
                 <p>No solutions found</p>
