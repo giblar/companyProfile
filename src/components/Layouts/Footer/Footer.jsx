@@ -8,12 +8,37 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  faCircleXmark,
+  faCopy,
   faEnvelope,
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(email)
+      .then(() => alert("Email copied to clipboard!"))
+      .catch((err) => console.error("Failed to copy text: ", err));
+  };
+
+  const [isOpenPhone, setIsOpenPhone] = useState(false);
+  const openModalPhone = () => setIsOpenPhone(true);
+  const closeModalPhone = () => setIsOpenPhone(false);
+
+  const copyToClipboardPhone = () => {
+    navigator.clipboard
+      .writeText(telphone)
+      .then(() => alert("phone number copied to clipboard!"))
+      .catch((err) => console.error("Failed to copy number: ", err));
+  };
+
   const [youtube, setYoutube] = useState("");
   const [instagram, setInstagram] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -23,7 +48,8 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA';
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIDEiLCJpYXQiOjE3MTEzNDEzMTV9.3w_4Ap87iNPpg9OKnCugwCfA7BMAuvTpHfa9HDQasQA";
 
   useEffect(() => {
     fetchData();
@@ -31,12 +57,15 @@ const Footer = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://casatech.id/compro-api/company', {
-        headers: {
-          Authorization: `Bearer ${token}`
+      const response = await axios.get(
+        "https://casatech.id/compro-api/company",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
-      console.log('response data:', response.data);
+      );
+      console.log("response data:", response.data);
 
       const data = response.data.data[0]; // Assuming response data is an object with 'data' property as an array
       setYoutube(data.link_youtube);
@@ -48,7 +77,7 @@ const Footer = () => {
       setEmail(data.email);
       setDescription(data.description_company);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -68,9 +97,10 @@ const Footer = () => {
         <div>
           <div className="flex flex-wrap lg:justify-center justify-between gap-[140px] px-[30px] text-white">
             <div>
-              <p className="w-[300px]" dangerouslySetInnerHTML={{ __html: description }}>
-              
-              </p>
+              <p
+                className="w-[300px]"
+                dangerouslySetInnerHTML={{ __html: description }}
+              ></p>
             </div>
             <div>
               <p>Location</p>
@@ -86,7 +116,7 @@ const Footer = () => {
               <div>
                 <p>Company</p>
                 <ul>
-                  <li>{whatsapp}</li> 
+                  <li>{whatsapp}</li>
                   <li>{telphone}</li>
                   <li>{instagram}r</li>
                   <li>{map}i</li>
@@ -111,39 +141,190 @@ const Footer = () => {
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="mt-6 lg:mb-0 mb-6">
               <a href={whatsapp}>
-                <button className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faWhatsapp} style={{ color: "#000000" }} />
-              </button></a>
+                <button
+                  className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faWhatsapp}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
+              </a>
               <a href={linkedin}>
-              <button className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faLinkedin} style={{ color: "#000000" }} />
-              </button>
+                <button
+                  className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
               </a>
-              <a href={instagram}>
-              <button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faInstagram} style={{ color: "#000000" }} />
-              </button>
+              <a
+                href={`https://www.instagram.com/${instagram}?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`}
+                target="_blank"
+              >
+                <button
+                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
               </a>
-             <a href={map}>
-             <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faLocationDot} style={{ color: "#000000" }} />
-              </button>
-             </a>
-             <a href={youtube}>
-             <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faYoutube} style={{ color: "#000000" }} />
-              </button>
-             </a>
-            <a href={telphone}>
-            <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faPhone} style={{ color: "#000000" }} />
-              </button>
-            </a>
-              <a href={email}>
-              <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                <FontAwesomeIcon icon={faEnvelope} style={{ color: "#000000" }} />
-              </button>
+              <a href={map}>
+                <button
+                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faLocationDot}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
               </a>
+              <a href={youtube}>
+                <button
+                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faYoutube}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
+              </a>
+              {/* fdsjfj */}
+              <a href="#12" onClick={openModalPhone}>
+                <button
+                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
+                {isOpenPhone && (
+                <div
+                  className="fixed top-[50%] left-[50%] bg-white p-[20px] lg:w-1/4 border-2 ease-out border-gray-200"
+                  style={{
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 1000,
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                  }}
+                >
+                  <button onClick={closeModalPhone} className="float-right">
+                    <FontAwesomeIcon
+                      icon={faCircleXmark}
+                      className="text-slate-700"
+                    />
+                  </button>
+                  <h4 className="font-bold">phone number</h4>
+                  <div className="flex items-center bg-slate-200 rounded-md my-5">
+                    <input
+                      type="text"
+                      readOnly
+                      value={telphone}
+                      className="flex-1 px-2 py-3 rounded-l-md text-gray-800 bg-transparent border-0 focus:outline-none focus:ring-0"
+                    />
+                    <button
+                      onClick={copyToClipboardPhone}
+                      className="px-4 py-3 bg-slate-700 hover:bg-slate-800 rounded-r-md"
+                    >
+                      <FontAwesomeIcon
+                        icon={faCopy}
+                        className="text-white text-xl"
+                      />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {isOpenPhone && (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    zIndex: 999,
+                  }}
+                  onClick={closeModalPhone}
+                ></div>
+              )}
+                {/* fdjfkld */}
+              </a>
+              <a href="#!" onClick={openModal}>
+                <button
+                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ color: "#000000" }}
+                  />
+                </button>
+              </a>
+              {isOpen && (
+                <div
+                  className="fixed top-[50%] left-[50%] bg-white p-[20px] lg:w-1/4 border-2 ease-out border-gray-200"
+                  style={{
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 1000,
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                  }}
+                >
+                  <button onClick={closeModal} className="float-right">
+                    <FontAwesomeIcon
+                      icon={faCircleXmark}
+                      className="text-slate-700"
+                    />
+                  </button>
+                  <h4 className="font-bold">Email Address</h4>
+                  <div className="flex items-center bg-slate-200 rounded-md my-5">
+                    <input
+                      type="text"
+                      readOnly
+                      value={email}
+                      className="flex-1 px-2 py-3 rounded-l-md text-gray-800 bg-transparent border-0 focus:outline-none focus:ring-0"
+                    />
+                    <button
+                      onClick={copyToClipboard}
+                      className="px-4 py-3 bg-slate-700 hover:bg-slate-800 rounded-r-md"
+                    >
+                      <FontAwesomeIcon
+                        icon={faCopy}
+                        className="text-white text-xl"
+                      />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {isOpen && (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                    zIndex: 999,
+                  }}
+                  onClick={closeModal}
+                ></div>
+              )}
+              {/* fsfjksal */}
             </div>
           </div>
         </div>
