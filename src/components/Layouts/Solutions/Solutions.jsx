@@ -24,7 +24,7 @@ const Solutions = () => {
             },
           }
         );
-        setSolutions(response.data.data); // Mengambil array solusi dari properti data
+        setSolutions(response.data.data); 
         setLoading(false);
       } catch (error) {
         setError(error);
