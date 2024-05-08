@@ -5,7 +5,6 @@ import "swiper/swiper-bundle.css";
 import { EffectFade } from "swiper/modules";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import LoadAnim from "../../LoadAnim";
 import SceletonC from "./fragments/SceletonC";
 
 const Innovation = () => {
@@ -39,7 +38,7 @@ const Innovation = () => {
 
   return (
     <div>
-      <h1 className=" ml-10 lg:absolute lg:mt-[5rem] text-center text-[#1762EF] text-3xl font-bold ">
+      <h1 className=" lg:ml-10 lg:absolute lg:mt-[5rem] ml-0 text-center text-[#1762EF] text-3xl font-bold ">
         Our Innovation
       </h1>
       <div className=" h-screen flex justify-center items-center">
@@ -72,7 +71,7 @@ const Innovation = () => {
                           CardTitle={innovation.tittle}
                           CardImage={innovation.image}
                           CardDescription={innovation.description}
-                          CardDate="12-12-2003"
+                          CardDate={innovation.created_at}
                         />
                       </SwiperSlide>
                     ))

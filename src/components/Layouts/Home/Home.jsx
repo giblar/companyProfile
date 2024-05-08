@@ -38,7 +38,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full overflow-x-hidden">
+    <div className="h-screen w-full overflow-x-hidden ">
       <img
         className="w-full h-full object-cover"
         src="/image/building.png"
@@ -85,7 +85,7 @@ const Home = () => {
           </a>
 
           {data ? (
-            <div>
+            <div className="">
               {Array.isArray(data.data) ? (
                 data.data.map((item) => (
                   <div key={item.id}>

@@ -14,8 +14,8 @@ const Card = (props) => {
             {CardSoftware}
           </h1>
           <div className="md:text-md sm:text-sm text-sm lg:text-md overflow-auto">
-            <p>
-              {CardDescription}
+            <p dangerouslySetInnerHTML={{ __html: CardDescription }}>
+              
             </p>
           </div>
           <div className="bg-blue-600 w-1/2 text-center mt-5 rounded-md text-white px-5 py-2">

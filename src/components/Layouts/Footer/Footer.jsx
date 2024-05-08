@@ -30,7 +30,10 @@ const Footer = () => {
 
   const [isOpenPhone, setIsOpenPhone] = useState(false);
   const openModalPhone = () => setIsOpenPhone(true);
-  const closeModalPhone = () => setIsOpenPhone(false);
+  const closeModalPhone = (e) => {
+    e.stopPropagation();  
+    setIsOpenPhone(false);
+  };
 
   const copyToClipboardPhone = () => {
     navigator.clipboard
@@ -98,13 +101,14 @@ const Footer = () => {
           <div className="flex flex-wrap lg:justify-center justify-between gap-[140px] px-[30px] text-white">
             <div>
               <p
-                className="w-[300px]"
+                className="max-w-[300px]"
                 dangerouslySetInnerHTML={{ __html: description }}
               ></p>
             </div>
             <div>
               <p>Location</p>
               <iframe
+              className="max-w-[250px]"
                 title="Google Maps"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3904885292955!2d106.80826197460277!3d-6.598296893395508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5935743b7e3%3A0x76074157a5981127!2si7%20Creative%20Community%20Space!5e0!3m2!1sid!2sid!4v1708049118110!5m2!1sid!2sid"
                 style={{ border: 0 }}
@@ -122,17 +126,6 @@ const Footer = () => {
                   <li>{map}i</li>
                 </ul>
               </div>
-
-              {/* <div>
-                <p>Company</p>
-                <ul>
-                  <li>hhhhh</li>
-                  <li>hhhhh</li>
-                  <li>hhhhh</li>
-                  <li>hhhhh</li>
-                  <li>hhhhh</li>
-                </ul>
-              </div> */}
             </div>
           </div>
         </div>
@@ -140,7 +133,7 @@ const Footer = () => {
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="mt-6 lg:mb-0 mb-6">
-              <a href={whatsapp}>
+              <a href={`https://wa.me/${whatsapp}`} target="_blank">
                 <button
                   className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
@@ -151,7 +144,7 @@ const Footer = () => {
                   />
                 </button>
               </a>
-              <a href={linkedin}>
+              <a href={linkedin} target="_blank">
                 <button
                   className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
@@ -176,10 +169,11 @@ const Footer = () => {
                   />
                 </button>
               </a>
-              <a href={map}>
+              <a href={map} target="_blank">
                 <button
                   className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
+
                 >
                   <FontAwesomeIcon
                     icon={faLocationDot}
@@ -187,7 +181,7 @@ const Footer = () => {
                   />
                 </button>
               </a>
-              <a href={youtube}>
+              <a href={youtube} target="_blank">
                 <button
                   className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"

@@ -1,7 +1,15 @@
-import { faAndroid } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
-
+import Card from "./fragments/Card";
+import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+} from "swiper/modules";
+import "swiper/swiper-bundle.css";
 const Culture = () => {
   const [Culture, setCulture] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,33 +45,48 @@ const Culture = () => {
         This is the <span className="text-blue-800">work culture</span> we
         usually do in the <span className="text-blue-800">office</span>
       </h1>
-      <div className=" mx-10">
-        <div className="grid lg:grid-cols-2 md:grid-cols-1">
-          <div className="flex justify-center">
-            <img src="/image/rounded.jpg" alt="" className="w-1/2" />
-          </div>
-
-          <div className="flex items-center">
-            <div className="">
-              <h1 className="text-2xl font-semibold ">judul berita</h1>
-
-              <div className="flex my-8">
-                <FontAwesomeIcon
-                  icon={faAndroid}
-                  className="self-center mr-3"
-                />
-                <div>
-                  <h1 className="text-md font-semibold ">mobile Aplication</h1>
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus, iure.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Swiper
+       modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+       spaceBetween={50}
+       navigation
+       pagination={{ clickable: true }}
+       className=""
+       breakpoints={{
+         640: {
+           slidesPerView: 1,
+         },
+         768: {
+           slidesPerView: 2,
+         },
+         1024: {
+           slidesPerView: 3,
+         },
+       }}
+   
+      >
+ <div className="">
+               {loading ? (
+                <p>loading</p>
+              ) : error ? (
+                <p>Error: {error.message}</p>
+              ) : Culture.length > 0 ? (
+                Culture.map((culture, index) => (
+                  <SwiperSlide>
+                  <Card
+                    key={index}
+                    title={culture.tittle_culture}
+                    image={culture.image}
+                    description={culture.description_culture}
+                  />
+                  </SwiperSlide>
+                ))
+              ) : (
+                <p>No data available</p>
+              )}
+             
+               </div>
+      </Swiper>
+     
     </div>
   );
 };

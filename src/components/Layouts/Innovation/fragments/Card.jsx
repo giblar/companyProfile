@@ -10,7 +10,12 @@ const Card = (props) => {
     Aos.init();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+  };
   const { CardTitle, CardDate, CardImage, CardDescription } = props;
+  const formattedDate = CardDate ? formatDate(CardDate) : "No Date Provided";
   return (
     <div className="flex justify-center items-center mb-10 mx-10">
       <div
@@ -39,7 +44,7 @@ const Card = (props) => {
                   icon={faCalendarDays}
                   className="text-blue-900 pr-2"
                 />
-                {CardDate}
+                {formattedDate}
               </span>
             </div>
           </div>

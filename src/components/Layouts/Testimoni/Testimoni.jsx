@@ -42,7 +42,7 @@ function SimpleSlider() {
 
   return (
     <div>
-      <h1 className="text-center lg:text-left lg:m-10 text-3xl text-blue-900 font-semibold mb-10">
+      <h1 className="mt-7 text-center lg:text-left lg:m-10 text-3xl text-blue-900 font-semibold mb-10">
         Testimony
       </h1>
       <Swiper
