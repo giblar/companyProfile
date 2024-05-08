@@ -55,7 +55,7 @@ const HomePage = () => {
       ) : error ? (
         <div class="bg-gray-100 px-2 text-center">
           <div class="h-screen flex flex-col justify-center items-center">
-            <h1 class="text-8xl font-extrabold text-red-500">500</h1>
+            <h1 class="text-8xl font-extrabold text-red-500 animate-bounce">500</h1>
             <p class="text-4xl font-medium text-gray-800">
               Internal Server Error
             </p>
