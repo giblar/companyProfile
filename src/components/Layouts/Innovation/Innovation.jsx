@@ -62,7 +62,7 @@ const Innovation = () => {
                     <SceletonC/>
                   ) : 
                   error ? (
-                    <p>Error: {error.message}</p>
+                    <p> <SceletonC/></p>
                   ) : innovation.length > 0 ? (
                     innovation.map((innovation, index) => (
                       <SwiperSlide>

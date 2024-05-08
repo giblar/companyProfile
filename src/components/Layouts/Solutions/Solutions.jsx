@@ -54,7 +54,7 @@ const Solutions = () => {
                  
                 </div>
               ) : error ? (
-                <p>Error: {error.message}</p>
+                <p><SceletonC/></p>
               ) : solutions.length > 0 ? (
                 solutions.map((solution, index) => (
                   <Card

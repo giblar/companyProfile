@@ -82,7 +82,21 @@ function SimpleSlider() {
             </div>
           ) : 
           error ? (
-            <p>Error: {error.message}</p>
+            <p><div>
+            <SwiperSlide>
+           <SceletonC></SceletonC>
+          </SwiperSlide>
+          <SwiperSlide>
+           <SceletonC></SceletonC>
+          </SwiperSlide>
+          <SwiperSlide>
+           <SceletonC></SceletonC>
+          </SwiperSlide>
+          <SwiperSlide>
+           <SceletonC></SceletonC>
+          </SwiperSlide>
+          </div>
+              Error: {error.message}</p>
           ) : testimoni.length > 0 ? (
             testimoni.map((Testimoni, index) => (
               <SwiperSlide key={index}>

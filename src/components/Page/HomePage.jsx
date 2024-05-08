@@ -6,13 +6,8 @@ import Innovation from "../../components/Layouts/Innovation/Innovation"
 import Portfolio from "../../components/Layouts/Portfolio/Portfolio"
 import Solutions from "../../components/Layouts/Solutions/Solutions"
 import Testimoni from "../../components/Layouts/Testimoni/Testimoni"
-
-
-// import Solutions from "./components/Layouts/Solutions/Solutions"
 import Navbar from "../../components/Navbar"
-
 import Support from '../Layouts/Support/Support'
-// import Test from '../Layouts/test/test'
 
 
 
@@ -28,8 +23,6 @@ const HomePage = () => {
    <Portfolio></Portfolio>
    <Testimoni></Testimoni>
    <Support></Support>
-   
-
    <Footer></Footer>
     </div>
   )

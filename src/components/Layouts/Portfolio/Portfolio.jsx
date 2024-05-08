@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./fragments/Card";
+import SceletonC from "./fragments/SceletonC";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -44,19 +45,10 @@ const Portfolio = () => {
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-y-12 gap-3 justify-center items-center">
             {loading ? (
               // batas
-              <div className="card aspect-square max-w-xs max-h-xs relative" >
-             <div className="h-full w-full bg-gray-300 animate-pulse">
-
-             </div>
-              <div className="z-10 bg-gray-300 shadow-2xl  mx-4 absolute bottom-[-10%] left-0 right-0 p-4 flex flex-col justify-center items-center font-mono font-semibold text-gray-400">
-                <h1 className="text-center mb-2 bg-gray-400 animate-pulse rounded-md">...........</h1>
-                <h1 className="text-center rounded-md bg-gray-400 animate-pulse" >................</h1>
-                
-              </div>
-            </div>
+             <SceletonC/>
               // batas
             ) : error ? (
-              <p>Error: {error.message}</p>
+              <p> <SceletonC/></p>
             ) : portfolio.length > 0 ? (
               portfolio.map((item, index) => (
                 <Card
